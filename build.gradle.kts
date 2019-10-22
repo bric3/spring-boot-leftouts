@@ -14,8 +14,10 @@ configure<JavaPluginConvention> {
 dependencies {
     implementation("org.springframework:spring-beans:4.3.25.RELEASE")
     implementation("org.springframework:spring-context:4.3.25.RELEASE")
+    implementation("org.springframework.boot:spring-boot-autoconfigure:1.5.21.RELEASE")
 
     testImplementation("org.springframework:spring-test:4.3.25.RELEASE")
+    testImplementation("org.springframework.boot:spring-boot-test:1.5.21.RELEASE")
     testImplementation("org.assertj:assertj-core:3.13.2")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.4.2")
     testCompileOnly("junit:junit:4.12") {
