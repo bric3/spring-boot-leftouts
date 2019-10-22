@@ -1,4 +1,4 @@
-package com.github.bric3.spring;
+package com.github.bric3.spring.autowire;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

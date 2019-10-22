@@ -1,4 +1,4 @@
-package com.github.bric3.spring;
+package com.github.bric3.spring.condition;
 
 import org.springframework.context.annotation.Conditional;
 

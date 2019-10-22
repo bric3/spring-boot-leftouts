@@ -1,4 +1,4 @@
-package com.github.bric3.spring;
+package com.github.bric3.spring.autowire;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;

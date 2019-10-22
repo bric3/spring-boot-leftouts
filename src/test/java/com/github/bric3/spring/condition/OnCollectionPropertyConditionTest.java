@@ -1,4 +1,4 @@
-package com.github.bric3.spring;
+package com.github.bric3.spring.condition;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
