@@ -1,9 +1,8 @@
 package com.github.bric3.spring;
 
-import org.junit.After;
-import org.junit.Ignore;
-import org.junit.Test;
-import org.springframework.boot.test.util.EnvironmentTestUtils;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.util.TestPropertyValues;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +18,7 @@ public class OnCollectionPropertyConditionTest {
 
     private AnnotationConfigApplicationContext context;
 
-    @After
+    @AfterEach
     public void tearDown() {
         if (context != null) {
             context.close();
@@ -58,7 +57,6 @@ public class OnCollectionPropertyConditionTest {
     }
 
     @Test
-    @Ignore("Spring RelaxedPropertyResolver does not handle relaxed properties well with indexes")
     public void relaxed_name() {
         load(RelaxedPropertyButNotSubPropertiesRequiredConfiguration.class,
              "theProperty[0].sub-property1=value1",
@@ -81,9 +79,8 @@ public class OnCollectionPropertyConditionTest {
     }
 
     @Test
-    @Ignore("don't know why this doesn't work")
-    public void meta_and_direct_annotation_condition_does_not_match_when_only_direct_property_is_set() {
-        load(MetaAnnotationAndDirectAnnotation.class,
+    public void map_style_sub_properties() {
+        load(MetaAnnotation.class,
              "my.other.feature[one].p1=value1",
              "my.other.feature[one].p2=value2");
         assertThat(context.containsBean("foo")).isFalse();
@@ -115,7 +112,7 @@ public class OnCollectionPropertyConditionTest {
 
     private void load(Class<?> config, String... environment) {
         context = new AnnotationConfigApplicationContext();
-        EnvironmentTestUtils.addEnvironment(context, environment);
+        TestPropertyValues.of(environment).applyTo(context);
         context.register(config);
         context.refresh();
     }
