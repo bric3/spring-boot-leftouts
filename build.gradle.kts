@@ -14,7 +14,10 @@ configure<JavaPluginConvention> {
 dependencies {
     implementation("org.springframework:spring-beans:5.2.0.RELEASE")
     implementation("org.springframework:spring-context:5.2.0.RELEASE")
+    implementation("org.springframework:spring-webmvc:5.2.0.RELEASE")
     implementation("org.springframework.boot:spring-boot-autoconfigure:2.2.0.RELEASE")
+    implementation("org.springframework.boot:spring-boot-actuator:2.2.0.RELEASE")
+    compileOnly("javax.servlet:javax.servlet-api:3.1.0")
 
     testImplementation("org.springframework:spring-test:5.2.0.RELEASE")
     testImplementation("org.springframework.boot:spring-boot-test:2.2.0.RELEASE")
